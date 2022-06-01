@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🩺Cadastro Fácil Consulta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<main id="app"></main>
+
+
+</body>
+<!--Scripts do vue, vue router e dos componentes-->
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue-router@4"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="home.vue.js"></script>
+<script src="atendimento.vue.js"></script>
+<script src="cadastro.vue.js"></script>
+<script src="botaoFacil.vue.js"></script>
+<script src="app.vue.js"></script>
+
+<script>
+//Configuração dos routes
+const routes = [
+  { path: '/', component: Home },
+  { path: '/atendimento', component: Atendimento },
+  { path: '/cadastro', component: Cadastro },
+]
+
+//Criação dos routes e history
+const router = VueRouter.createRouter({
+  history: VueRouter.createWebHashHistory(),
+  routes, 
+})
+
+//Criação do Vue e registro global do botão solicitado
+const app2 = Vue.createApp(app)
+app2.use(router)
+app2.mount('#app')
+app2.component("botaoFacil", botaoFacil);
+
+</script>
+</html>
